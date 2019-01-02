@@ -6,24 +6,10 @@ agent:
     os_image: ubuntu1804
 
 blocks:
-  - name: "Build"
-    task:
-      env_vars:
-        - name: APP_ENV
-          value: prod
-      jobs:
-      - name: Docker build
-        commands:
-          - checkout
-          - ls -1
-          - echo $APP_ENV
-          - echo "Docker build..."
-          - echo "done"
-
-  - name: "tests"
+  - name: "lint"
     task:
       jobs:
-      - name: Smoke
+      - name: Lint
         commands:
           - checkout
-          - echo "make smoke"
+          - make lint

@@ -1,8 +1,7 @@
 version: 2
 jobs:
   build:
-    docker:
-      - image: circleci/elixir:1.7
+    machine: true
     steps:
       - checkout
       - run: make lint

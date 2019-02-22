@@ -13,3 +13,4 @@ blocks:
         commands:
           - checkout
           - make lint
+          - env

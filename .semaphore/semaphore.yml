@@ -15,4 +15,4 @@ blocks:
           - make lint
           - echo 1
           - git show
-          - env | grep SEMAPHORE
+          - env | grep SEMAPHORE_GIT

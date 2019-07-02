@@ -14,4 +14,4 @@ blocks:
           - checkout
           - make lint
           - echo 1
-          - env
+          - env | grep SEMAPHORE

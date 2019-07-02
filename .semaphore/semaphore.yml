@@ -14,3 +14,4 @@ blocks:
           - checkout
           - make lint
           - echo 1
+          - env

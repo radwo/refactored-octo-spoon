@@ -14,4 +14,5 @@ blocks:
           - checkout
           - make lint
           - echo 1
+          - git show
           - env | grep SEMAPHORE_GIT

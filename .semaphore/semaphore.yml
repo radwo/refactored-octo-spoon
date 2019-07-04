@@ -11,8 +11,8 @@ blocks:
       jobs:
       - name: Lint
         commands:
+          - env | grep SEMAPHORE_GIT
           - checkout
           - make lint
           - echo 1
           - git show
-          - env | grep SEMAPHORE_GIT

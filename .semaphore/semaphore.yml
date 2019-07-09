@@ -14,5 +14,4 @@ blocks:
           - env | grep SEMAPHORE_GIT
           - checkout
           - make lint
-          - echo 1
-          - git show
+          - git diff-tree --no-commit-id --name-only -r SEMAPHORE_GIT_SHA

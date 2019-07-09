@@ -13,5 +13,4 @@ blocks:
         commands:
           - checkout
           - make lint
-          - echo 1
           - env | grep SEMAPHORE_GIT

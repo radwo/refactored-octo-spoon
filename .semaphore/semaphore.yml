@@ -20,5 +20,5 @@ blocks:
           - git diff-tree --no-commit-id --name-only -r $SEMAPHORE_GIT_SHA
           - echo $SEMAPHORE_GIT_COMMIT_RANGE
           - git diff "$SEMAPHORE_GIT_COMMIT_RANGE"
-            git diff --quiet "$SEMAPHORE_GIT_COMMIT_RANGE"
+          - git diff --quiet "$SEMAPHORE_GIT_COMMIT_RANGE"
           - git show --pretty="" --name-only $SEMAPHORE_GIT_COMMIT_RANGE

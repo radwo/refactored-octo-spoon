@@ -8,6 +8,9 @@ agent:
 blocks:
   - name: "lint"
     task:
+      env_vars:
+        - name: FOO
+          value: "BAR"
       jobs:
       - name: Lint
         commands:

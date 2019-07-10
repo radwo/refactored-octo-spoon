@@ -18,4 +18,4 @@ blocks:
           - env | grep SEMAPHORE_GIT
           - git show
           - git diff-tree --no-commit-id --name-only -r $SEMAPHORE_GIT_SHA
-          - git show --pretty="" --name-only $SEMAPHORE_GIT_SHA
+          - git show --pretty="" --name-only $SEMAPHORE_GIT_COMMIT_RANGE

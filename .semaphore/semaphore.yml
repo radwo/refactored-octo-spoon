@@ -11,7 +11,13 @@ blocks:
       jobs:
       - name: Lint
         commands:
+          - env | grep SEMAPHORE_GIT
           - checkout
           - make lint
           - echo 1
           - env | grep SEMAPHORE_GIT
+          - git show
+          - git diff-tree --no-commit-id --name-only -r $SEMAPHORE_GIT_SHA
+          - echo $SEMAPHORE_GIT_COMMIT_RANGE
+          - git diff "$SEMAPHORE_GIT_COMMIT_RANGE"
+          - git show --pretty="" --name-only $SEMAPHORE_GIT_COMMIT_RANGE

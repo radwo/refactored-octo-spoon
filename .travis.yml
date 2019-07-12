@@ -6,3 +6,4 @@ services:
 script:
 - make lint
 - git show
+- echo $TRAVIS_COMMIT_RANGE

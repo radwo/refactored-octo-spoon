@@ -1,17 +1,35 @@
 version: v1.0
-name: First pipeline example
+name: Test fresho-app
 agent:
   machine:
     type: e1-standard-2
     os_image: ubuntu1804
-
+global_job_config:
+  secrets:
+    - name: fresho-app-database
+  prologue:
+    commands:
+      - checkout
+      - cp ../database.yml config/database.yml
+      - cache restore
+      - sem-version ruby 2.6.1
+      - bundle install --deployment -j 4 --path vendor/bundle
+      - cache store
+      - sem-service start postgres 9.6
 blocks:
-  - name: "lint"
+  - name: Feature Specs
     task:
       jobs:
-      - name: Lint
-        commands:
-          - checkout
-          - make lint
-          - echo 1
-          - env | grep SEMAPHORE_GIT
+        - name: Shard
+          parallelism: 21
+          commands:
+            - './bin/ci/run-features-shard.sh $SEMAPHORE_JOB_INDEX $SEMAPHORE_JOB_COUNT'
+  - name: Specs
+    task:
+      jobs:
+        - name: Specs
+          commands:
+            - './bin/ci/run-specs.sh'
+        - name: API Acceptance Specs (& deprecated controller specs)
+          commands:
+            - './bin/ci/run-api-acceptance-specs.sh'

@@ -3,6 +3,5 @@ jobs:
   build:
     machine: true
     steps:
-      - checkout
       - run: env
       

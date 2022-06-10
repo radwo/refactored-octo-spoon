@@ -4,5 +4,5 @@ jobs:
     machine: true
     steps:
       - checkout
-      - env
+      - run: env
       

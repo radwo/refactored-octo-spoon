@@ -4,4 +4,4 @@ jobs:
     machine: true
     steps:
       - run: env
-      
+      - run: docker run hello-world
